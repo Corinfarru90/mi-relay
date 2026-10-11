@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
     return res.status(401).json({ error: 'Token inválido' });
   }
 
-  // Obtener datos sin importar si vienen por GET o POST
+  // Obtener datos por POST o GET
   const data = req.method === 'POST' ? req.body : req.query;
   const to = data.to || req.query.to;
   const subject = data.subject || req.query.subject;
@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
     service: 'gmail',
     auth: {
       user: 'corinfarru@gmail.com',
-      pass: 'rchixloi26'
+      pass: 'uakeqzfgplpjfplq'
     }
   });
 
