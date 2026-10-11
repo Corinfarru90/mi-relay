@@ -10,7 +10,6 @@ module.exports = async (req, res) => {
     return res.status(401).json({ error: 'Token inválido' });
   }
 
-  // Obtener datos por POST o GET
   const data = req.method === 'POST' ? req.body : req.query;
   const to = data.to || req.query.to;
   const subject = data.subject || req.query.subject;
@@ -27,7 +26,8 @@ module.exports = async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from: 'corinfarru@gmail.com',
+      from: '"Notificaciones App" <corinfarru@gmail.com>',
+      replyTo: 'corinfarru@gmail.com',
       to,
       subject,
       text,
